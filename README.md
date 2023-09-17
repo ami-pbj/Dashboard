@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# React Data Visualization Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a dashboard for displaying information about Cryptocurrency.
+
 
 ## Available Scripts
 
