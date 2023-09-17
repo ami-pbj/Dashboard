@@ -3,7 +3,7 @@
 This is a dashboard for displaying information about Cryptocurrency.
 
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
