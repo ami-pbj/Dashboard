@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import CardSection from './components/CardSection';
+import Header from './components/Header';
 
 export default class App extends Component {
 
@@ -7,23 +9,33 @@ export default class App extends Component {
 
     this.state = {
       Id : 'bitcoin',
-      Data : {},
-    };
+      Data : {}
+    }
   }
 
-  fetch = () => {
-    let data = fetch("https://api.coingecko.com/api/v3/coins/bitcoin");
-    let jsonData = data.json();
+  fetchData = async() => {
+    let data = await fetch("https://api.coingecko.com/api/v3/coins/bitcoin");
+    let jsonData = await data.json();
 
-    this.setState({ Id: "pbj", Data: this.state.Data });
+    this.setState({ Id: this.state.Id, Data: jsonData })
+  }
+
+  componentDidMount() {
+    this.fetchData();
   }
 
   render() {
     return (
       <div>
-        <h1>
-          {this.state.Id}        
-        </h1>
+
+        {/* Header Section from src > components */}
+        <Header/>
+
+        {/* Card Section from src > components */}
+        <CardSection
+          cryptoName = {this.state.Data.name}
+          sentiment = {this.state.Data.sentiment_votes_up_percentage}
+        />
 
       </div>
     )
